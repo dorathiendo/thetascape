@@ -1,0 +1,32 @@
+{
+  "name": "thetascape",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node bin/www",
+    "asbuild:debug": "asc assembly/index.ts --target debug",
+    "asbuild:release": "asc assembly/index.ts --target release",
+    "asbuild": "npm run asbuild:debug && npm run asbuild:release",
+    "test": "node tests"
+  },
+  "dependencies": {
+    "@assemblyscript/loader": "^0.27.5",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "hbs": "~4.0.4",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "socket.io": "^4.6.1"
+  },
+  "devDependencies": {
+    "assemblyscript": "^0.27.5"
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./build/release.js",
+      "types": "./build/release.d.ts"
+    }
+  }
+}
